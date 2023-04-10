@@ -1,46 +1,51 @@
-//Vari·veis para guardar os textos da textarea1 e 2.
-let texto = document.getElementById("areatext1");
-let texto1 = document.getElementById("areatext2");
-//Vari·veis para guardar as mensagens da textarea2.
-let mensagem1 = document.querySelector("mensagem");
-let mensagem2 = document.querySelector("paragrafo");
-//Vari·veis dos botıes
-let botaoCriptografar = document.getElementById("criptografar");
-let botaoDesriptografar = document.getElementById("descriptografar");
-let botaoCopiar = document.getElementById("copiar");
+// Vari√°veis para guardar os textos da textarea1 e 2.
+const textarea1 = document.getElementById("areatext1");
+const textarea2 = document.getElementById("areatext2");
+// Vari√°veis para guardar as mensagens da textarea2.
+const mensagem1 = document.querySelector(".mensagem");
+const mensagem2 = document.querySelector(".paragrafo");
+// Vari√°veis dos bot√µes.
+const botaoCriptografar = document.getElementById("criptografar");
+const botaoDescriptografar = document.getElementById("descriptografar");
+const botaoCopiar = document.getElementById("copiar");
 
-//vari·vel para a imagem da textarea2.
-let imagem = document.querySelector("#resultado img");
+// Vari√°vel para a imagem da textarea2.
+const imagem = document.querySelector("#resultado img");
 
-//botoes com a funÁ„o onclick
+//botoes com a fun√ß√£o onclick
 botaoCriptografar.onclick = criptografa;
 botaoDesriptografar.onclick = descriptografa;
 botaoCopiar.onclick = copiar;
 
 
-//FunÁ„o para criptografar
-function criptografa(){
-    let textoCriptografado = texto.value;
-     
-    let resultado = textoCriptografado
-    .replaceAll("e", "enter")
-    .replaceAll("i", "imes")
-    .replaceAll("a", "ai")
-    .replaceAll("o", "ober")
-    .replaceAll("u", "ufat");
+// Fun√ß√£o para criptografar.
+function criptografa() {
+const textoCriptografado = textarea1.value;
+const resultado = textoCriptografado
+.replaceAll('e', 'enter')
+.replaceAll('i', 'imes')
+.replaceAll('a', 'ai')
+.replaceAll('o', 'ober')
+.replaceAll('u', 'ufat');
+textarea2.value = resultado;
 
-    texto1.value = resultado;
-
-//CÛdigo que faz sumir os elementos assim que a funÁ„o È chamada.
-    imagem.style.display = "none";
-    mensagem.style.display = "none";
-    paragrafo.style.display = "none";
+// Esconde os elementos da mensagem.
+imagem.style.display = 'none';
+mensagem1.style.display = 'none';
+mensagem2.style.display = 'none';
+    
+// Verifica se o texto foi criptografado com sucesso.
+if (resultado.length >= 1) {
+alert('Texto criptografado com sucesso!');
+} else {
+mensagem1.style.display = 'block';
+mensagem1.textContent = 'N√£o foi poss√≠vel criptografar o texto.';
 }
-//FunÁ„o para descriptografar
+}
+//Fun√ß√£o para descriptografar
 function descriptografa(){
-    let textoCriptografado = texto.value;
-     
-    let resultado = textoCriptografado
+const textoCriptografado = textarea1.value;
+const resultado = textoCriptografado
     .replaceAll("enter", "e")
     .replaceAll("imes", "i")
     .replaceAll("ai", "a")
@@ -50,7 +55,7 @@ function descriptografa(){
     texto1.value = resultado;
 }
 
-//FunÁ„o para copiar
+//Fun√ß√£o para copiar
 function copiar(){
     conteudo = document.getElementById("areatext2");
 
