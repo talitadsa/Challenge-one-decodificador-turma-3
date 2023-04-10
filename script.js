@@ -65,7 +65,7 @@ function copiar(){
 
 }
 
-let carateres = texto1.length;
+const carateres = texto1.length;
 
 if (carateres >= 1){
     
